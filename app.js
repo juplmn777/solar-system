@@ -40,7 +40,18 @@ const draw = () => {
   //earth on orbit
   context.translate(105, 0);
   context.drawImage(earth, -12, -12); //-12: earth center on orbit
-  
+
+  //moon
+  context.rotate(((2 * Math.PI) / 6) * time.getSeconds());
+  context.translate(0, 28);
+
+  context.drawImage(moon, -3.5, -3.5);
+
+  context.restore();
+
+  //sun
+  context.drawImage(sun, 0, 0);
+  requestAnimationFrame(draw);
 };
 
 draw();
