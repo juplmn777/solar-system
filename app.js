@@ -26,11 +26,21 @@ const draw = () => {
   //earth orbit
   context.beginPath();
   context.strokeStyle = 'crimson';
-
   context.arc(150, 150, 105, 0, Math.PI * 2);
   context.stroke();
 
   context.save();
+  context.translate(150, 150);
+
+  //earth & earth-rotating on orbit
+  const time = new Date();
+  //console.log(time);
+  context.rotate(((2 * Math.PI) / 60) * time.getSeconds());
+
+  //earth on orbit
+  context.translate(105, 0);
+  context.drawImage(earth, -12, -12); //-12: earth center on orbit
+  
 };
 
 draw();
